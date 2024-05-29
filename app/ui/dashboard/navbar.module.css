@@ -1,0 +1,10 @@
+.navbar {
+  width: 100%;
+  height: 60px;
+  padding: 0 10px;
+}
+
+.greeting {
+  font-size: 30px;
+  font-weight: bold;
+}

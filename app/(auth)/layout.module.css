@@ -1,0 +1,15 @@
+.authLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: linear-gradient(#673AB7, #B69EE0); */
+  background: linear-gradient(#673ab7, hsl(262, 52%, 60%));
+}
+
+.authLayoutContent {
+  width: 35%;
+  background-color: white;
+  border-radius: 10px;
+}

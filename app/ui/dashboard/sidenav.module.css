@@ -1,0 +1,44 @@
+.sidenav {
+  background-color: #5D17DA;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.logoWrapper {
+  padding: 25px 0;
+}
+
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+}
+
+.link:hover {
+  background-color: white;
+  border-radius: 3px;
+}
+
+.link:hover .linkText,
+.link:hover .linkIcon {
+  color: #5D17DA;
+}
+
+.linkIcon {
+  color: white;
+  height: 23px;
+}
+
+.linkText {
+  color: white;
+}

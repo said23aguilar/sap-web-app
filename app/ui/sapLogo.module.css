@@ -1,0 +1,15 @@
+.sapLogo {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon {
+  color: white;
+  height: 30px;
+}
+
+.text {
+  color: white;
+  font-size: 25px;
+}
