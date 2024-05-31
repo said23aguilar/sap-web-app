@@ -1,6 +1,7 @@
 'use server'
 
 import { cookies } from "next/headers";
+import { RedirectType, redirect } from "next/navigation";
 
 type AuthState = {
   data: string | object;
@@ -19,33 +20,20 @@ export const login = async (_currentState: AuthState, formData: FormData) => {
       },
       body: JSON.stringify(user),
     });
-    const data = await res.json();
-    if (data?.token) {
+    if (res.status === 200) {
+      const data = await res.json();
       cookies().set('currentUser', JSON.stringify(data), {
         httpOnly: true,
         // secure: process.env.NODE_ENV === 'production',
-        maxAge: 60 * 60 * 24 * 7, // One week
+        maxAge: 60 * 60 * 24, // One day
         path: '/',
       });
       return data;
-    } else {
-      return 'Usuario y/o contraseña incorrecto';
     }
-    // await new Promise<void>((resolve) => setTimeout(() => {
-    //   resolve();
-    // }, 2000));
+    return 'Usuario y/o contraseña incorrecto';
   } catch (error) {
     console.log(error);
-    if (error) {
-      // switch (error.type) {
-      //   case 'CredentialsSignin':
-      //     return 'Invalid credentials.'
-      //   default:
-      //     return 'Something went wrong.'
-      // }
-      return 'Usuario y/o contraseña incorrecto';
-    }
-    throw error
+    return 'Algo salió mal, por favor inténtelo más tarde';
   }
 }
 
@@ -64,16 +52,28 @@ export const register = async (_currentState: String, formData: FormData) => {
       },
       body: JSON.stringify(newUser),
     });
+    // console.log(await res.json());
     if (res.status === 200) {
       return 'Se registro correctamente';
-    } else {
-      return 'Error desconocido';
+    } else if (res.status === 400) {
+      const data = await res.json();
+      if (data?.respuesta === 'Usuario ya Existe') {
+        return 'Este usuario ya esta registrado';
+      } else {
+        return 'Error en el registro, revisa que los campos sean validos'
+      }
     }
+    return 'Error al intentar registrar usuario';
   } catch (error) {
     console.log(error);
     if (error) {
-      return 'Error en el registro';
+      return 'Algo salió mal, por favor inténtelo más tarde';
     }
     throw error;
   }
+}
+
+export const logout = () => {
+  cookies().delete('currentUser');
+  redirect('/login', RedirectType.replace);
 }

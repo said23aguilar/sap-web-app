@@ -1,17 +1,20 @@
 'use client';
 
 import { login } from '@/app/lib/actions/auth';
-import styles from './login.module.css';
+import styles from '../auth.module.css';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useEffect, useState } from 'react';
 import { RedirectType, redirect } from 'next/navigation';
 import Link from 'next/link';
+import { montserratAlternates } from '@/app/ui/fonts';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 const Page = () => {
 
   const [state, dispatch] = useFormState(login, '');
 
   const [errorMessage, setErrorMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     if (typeof state === 'string') {
@@ -21,12 +24,32 @@ const Page = () => {
     }
   }, [state]);
 
+  const handleShowPasswordClick = (e: React.ChangeEvent<any>) => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
+  };
 
   return (
-    <form className={styles.login} action={dispatch}>
-      <h2>Inicio de sesión</h2>
-      <input className={styles.input} type="text" name="user" placeholder="Usuario" required />
-      <input className={styles.input} type="password" name="password" placeholder="Contraseña" required />
+    <form className={styles.authForm} action={dispatch}>
+      <p className={`${montserratAlternates.className} ${styles.title}`}>Inicio de sesión</p>
+      <label className={styles.label}>
+        Usuario
+        <input className={styles.input} type="text" name="user" placeholder="MiUsuario" required></input>
+      </label>
+      <label className={styles.label}>
+        Contraseña
+        <input className={styles.input} type="password" name="password" placeholder="********" required />
+        <button
+          className={styles.passwordIconBtn}
+          onClick={handleShowPasswordClick}
+        >
+          {
+            showPassword ?
+              <EyeIcon className={styles.passwordIcon} />
+              : <EyeSlashIcon className={styles.passwordIcon} />
+          }
+        </button>
+      </label>
       <div>{errorMessage && <p className={styles.error}>{errorMessage}</p>}</div>
       <LoginButton />
       <div className={styles.links}>
@@ -48,7 +71,7 @@ const LoginButton = () => {
   };
 
   return (
-    <button className={styles.loginButton} type='submit' disabled={pending} onClick={handleClick}>{
+    <button className={styles.authButton} type='submit' disabled={pending} onClick={handleClick}>{
       pending ?
         'Login...'
         : 'Login'

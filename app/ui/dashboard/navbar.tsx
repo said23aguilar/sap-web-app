@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import styles from './navbar.module.css';
+import Avatar from './avatar';
 
 const Navbar = ({ token }: { token: String }) => {
   const [greetin, setGreetin] = useState('');
@@ -32,6 +33,7 @@ const Navbar = ({ token }: { token: String }) => {
   return (
     <div className={styles.navbar}>
       <p className={styles.greeting}>Bienvenido {greetin}</p>
+      <Avatar />
     </div>
   );
 };

@@ -1,0 +1,77 @@
+.authForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  background-color: transparent;
+  gap: 10px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  position: relative;
+}
+
+.input {
+  width: 300px;
+}
+
+.passwordIconBtn {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: fit-content;
+  position: absolute;
+  bottom: 22px;
+  right: 10px;
+  transform: translateY(50%);
+}
+
+.passwordIcon {
+  height: 25px;
+  color: #595959;
+}
+
+.input:focus {
+  outline: 1px solid #5D17DA;
+}
+
+.authButton {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #5D17DA;
+  padding: 10px 15px;
+  color: white;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.authButton:active {
+  transform: translateY(1px);
+}
+
+.authButton:focus {
+  outline: 2px solid #B69EE0;
+}
+
+.error {
+  color: red;
+  font-size: 15px;
+}
+
+.links {
+  padding: 20px 0;
+}
