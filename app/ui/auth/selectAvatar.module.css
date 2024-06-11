@@ -1,0 +1,78 @@
+.labelSelect {
+  position: relative;
+}
+
+.selectAvatar {
+  border: 2px solid transparent;
+  border-bottom: none;
+  cursor: pointer;
+  outline: none;
+  padding-left: 55px;
+  transition: all .3s;
+}
+
+.selectAvatar:focus {
+  outline: none;
+}
+
+.selectAvatarActive {
+  border: 1px solid #5D17DA;
+  border-bottom: none;
+}
+
+.selectedAvatarImg {
+  position: absolute;
+  left: 5px;
+  bottom: calc(45px / 2);
+  transform: translateY(50%);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectIcon {
+  position: absolute;
+  height: 25px;
+  right: 5px;
+  bottom: calc(45px / 2);
+  transform: translateY(50%);
+  color: #595959;
+  transition: all .3s;
+}
+
+.selectIconShow {
+  transform: rotateZ(180deg) translateY(-50%);
+}
+
+.selectAvatarOptions {
+  position: absolute;
+  top: calc(100% - 1px);
+  width: 100%;
+  background-color: white;
+  border: 1px solid #5D17DA;
+  border-top: none;
+  transition: all .3s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+}
+
+.selectAvatarOptionsShow {
+  visibility: visible;
+  opacity: 1;
+}
+
+.selectAvatarOption {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  list-style-type: none;
+  padding: 10px 5px;
+}
+
+.selectAvatarOption:hover {
+  background-color: #f0ecf9;
+  cursor: pointer;
+}

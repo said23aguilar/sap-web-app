@@ -1,0 +1,50 @@
+.tableStyle1 {
+  border-collapse: separate;
+  border-spacing: 0 2px;
+  width: 100%;
+  background-color: #f0ecf9;
+  border-radius: 8px;
+  padding: 0 5px 5px 5px;
+}
+
+.tableStyle1 tbody {
+  background-color: white;
+}
+
+.tableStyle1 tr:first-child th {
+  text-align: center;
+}
+
+.tableStyle1 tr th {
+  white-space: nowrap;
+}
+
+.tableStyle1 tr th,
+.tableStyle1 tr td {
+  padding: 15px 8px;
+}
+
+.tableStyle1 tr th {
+  text-align: left;
+  font-size: 17px;
+}
+
+.tableStyle1 tr td {
+  font-size: 15px;
+}
+
+.tableStyle1 tr:first-child td:first-child {
+  border-top-left-radius: 8px;
+}
+
+.tableStyle1 tr:first-child td:last-child {
+  border-top-right-radius: 8px;
+}
+
+.tableStyle1 tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+
+.tableStyle1 tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}

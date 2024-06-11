@@ -8,9 +8,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className={styles.sideNavWrapper}>
         <SideNav />
       </div>
-      <div className={styles.content}>
+      <div className={styles.contentWrapper}>
         <NavbarServer />
-        {children}
+        <div className={styles.content}>
+          {children}
+        </div>
       </div>
     </div>
   );
