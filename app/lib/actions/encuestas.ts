@@ -1,6 +1,8 @@
+import { unstable_noStore as noStore } from 'next/cache';
 import { Column } from "@/app/ui/table";
 
 export async function getEncuestados() {
+  noStore();
   try {
     const res = await fetch('https://encuestas-service-production.up.railway.app/encuestados/list');
     if (res.status === 200) {
