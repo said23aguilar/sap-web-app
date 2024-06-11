@@ -46,6 +46,7 @@ export const register = async (_currentState: String, formData: FormData) => {
         usuario: formData.get('user'),
         password: formData.get('password'),
         avatar: formData.get('avatar'),
+        type: formData.get('type'),
       };
       const res = await fetch('https://login-service-production.up.railway.app/auth/registrar', {
         method: 'POST',

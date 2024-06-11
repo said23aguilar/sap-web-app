@@ -63,6 +63,10 @@ const Page = () => {
         />
         <ShowPasswordButton onChange={(value: boolean) => setShowConfirmPassword(value)} />
       </label>
+      <label className={styles.label}>
+        Tipo
+        <input className={styles.input} type="number" name="type" required />
+      </label>
       <div>{errorMessage && <p className={styles.error}>{errorMessage}</p>}</div>
       <RegisterButton />
       <div className={styles.links}>
